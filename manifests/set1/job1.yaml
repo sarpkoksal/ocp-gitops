@@ -1,25 +1,23 @@
----
 apiVersion: batch/v1
 kind: Job
 metadata:
   annotations:
-    argocd.argoproj.io/hook: PreSync
     argocd.argoproj.io/sync-wave: "203"
-  name: presync2 
-  namespace: argotest2
+  name: testjob-1-1
+  namespace: argotest1-1
 spec:
   template:
     spec:
       dnsPolicy: ClusterFirst
       restartPolicy: OnFailure
-      # serviceAccount: cli-job-sa
-      # serviceAccountName: cli-job-sa
+      serviceAccount: cli-job-sa
+      serviceAccountName: cli-job-sa
       terminationGracePeriodSeconds: 30
       containers:
-        - image: quay.io/sfhassan/newtools
-          name: presync2
+        - image: quay.io/sfhassan/oc_net_tools 
+          name: testjob-1-1
           command:
             - /bin/bash
             - -c
             - |
-              while true; do echo ".....presync2...."; sleep 10; done
+              for count in {1..10}; do echo "job1: " $count; sleep 10; done

@@ -4,9 +4,9 @@ kind: Job
 metadata:
   annotations:
     argocd.argoproj.io/hook: PreSync
-    argocd.argoproj.io/sync-wave: "103"
-  name: presync1
-  namespace: argotest1
+    argocd.argoproj.io/sync-wave: "203"
+  name: presync2 
+  namespace: argotest2
 spec:
   template:
     spec:
@@ -17,9 +17,9 @@ spec:
       terminationGracePeriodSeconds: 30
       containers:
         - image: quay.io/sfhassan/newtools
-          name: presync1
+          name: presync2
           command:
             - /bin/bash
             - -c
             - |
-              while true; do echo ".....presync1...."; sleep 10; done
+              while true; do echo ".....presync2...."; sleep 30; done

@@ -4,7 +4,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "300"
   creationTimestamp: null
-  name: argotest2-2
+  name: argotest1-2
 ---
 apiVersion: v1
 kind: ServiceAccount
@@ -12,14 +12,14 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "301"
   name: cli-job-sa
-  namespace: argotest2-2
+  namespace: argotest1-2
 --- 
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "302"
-  name: cli-job-sa-argotest2-2-rolebinding
+  name: cli-job-sa-argotest1-2-rolebinding
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
@@ -27,15 +27,15 @@ roleRef:
 subjects:
   - kind: ServiceAccount
     name: cli-job-sa
-    namespace: argotest2-2
+    namespace: argotest1-2
 ---
 apiVersion: batch/v1
 kind: Job
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "303"
-  name: testjob2-2
-  namespace: argotest2-2
+  name: testjob1-2
+  namespace: argotest1-2
 spec:
   template:
     spec:
@@ -46,9 +46,9 @@ spec:
       terminationGracePeriodSeconds: 30
       containers:
         - image: quay.io/sfhassan/oc_net_tools 
-          name: testjob2-2
+          name: testjob1-2
           command:
             - /bin/bash
             - -c
             - |
-              for count in {1..100}; do echo "job2: " $count; sleep 10; done
+              for count in {1..10}; do echo "job2: " $count; sleep 10; done
