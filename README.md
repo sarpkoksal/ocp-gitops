@@ -1,8 +1,7 @@
 # ocp-gitops
 
-
-| set#  | manifest | name | Priority |
-| ------------- | ------------- | ------------- |
+| set | manifest | name | Priority |
+| ------------- | ------------- | ------------- |------------- |
 | 1 | presync1.yaml | presync1 | PreSync 103 | 
 | 1 | presync2.yaml | presync2 | PreSync 203 | 
 | 1 | powerpod.yaml | powerpod | 103 | 
