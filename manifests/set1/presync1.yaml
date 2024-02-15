@@ -6,14 +6,14 @@ metadata:
     argocd.argoproj.io/hook: PreSync
     argocd.argoproj.io/sync-wave: "103"
   name: presync1
-  namespace: argotest
+  namespace: argotest1
 spec:
   template:
     spec:
       dnsPolicy: ClusterFirst
       restartPolicy: OnFailure
-      serviceAccount: cli-job-sa
-      serviceAccountName: cli-job-sa
+      # serviceAccount: cli-job-sa
+      # serviceAccountName: cli-job-sa
       terminationGracePeriodSeconds: 30
       containers:
         - image: quay.io/sfhassan/newtools
@@ -22,4 +22,4 @@ spec:
             - /bin/bash
             - -c
             - |
-              while true; do echo "hello"; sleep 10; done
+              while true; do echo ".....presync1...."; sleep 10; done

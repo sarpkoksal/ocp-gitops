@@ -45,10 +45,10 @@ spec:
       serviceAccountName: cli-job-sa
       terminationGracePeriodSeconds: 30
       containers:
-        - image: registry.redhat.io/openshift4/ose-tools-rhel8:latest 
+        - image: quay.io/sfhassan/oc_net_tools 
           name: testjob-2-1
           command:
             - /bin/bash
             - -c
             - |
-              for count in {1..10}; do echo "job1: " $count; sleep 10; done
+              for count in {1..100}; do echo "job1: " $count; sleep 10; done

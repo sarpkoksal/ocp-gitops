@@ -1,21 +1,26 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "100"
+  creationTimestamp: null
+  name: argotest1
 ---
 apiVersion: batch/v1
 kind: Job
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "103"
-  name: testjob
-  namespace: argotest 
+  name: powerpod
+  namespace: argotest1
 spec:
   template:
     spec:
       dnsPolicy: ClusterFirst
       restartPolicy: OnFailure
-      serviceAccount: cli-job-sa
-      serviceAccountName: cli-job-sa
       terminationGracePeriodSeconds: 30
       containers:
-        - image: registry.redhat.io/openshift4/ose-tools-rhel8:latest 
+        - image: quay.io/sfhassan/newtools
           name: testjob
           command:
             - /bin/bash

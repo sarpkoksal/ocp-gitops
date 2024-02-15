@@ -4,22 +4,22 @@ kind: Job
 metadata:
   annotations:
     argocd.argoproj.io/hook: PreSync
-    argocd.argoproj.io/sync-wave: "103"
+    argocd.argoproj.io/sync-wave: "203"
   name: presync2 
-  namespace: argotest
+  namespace: argotest2
 spec:
   template:
     spec:
       dnsPolicy: ClusterFirst
       restartPolicy: OnFailure
-      serviceAccount: cli-job-sa
-      serviceAccountName: cli-job-sa
+      # serviceAccount: cli-job-sa
+      # serviceAccountName: cli-job-sa
       terminationGracePeriodSeconds: 30
       containers:
-        - image: registry.redhat.io/openshift4/ose-tools-rhel8:latest 
+        - image: quay.io/sfhassan/newtools
           name: presync2
           command:
             - /bin/bash
             - -c
             - |
-              while true; do echo "hello"; sleep 10; done
+              while true; do echo ".....presync2...."; sleep 10; done
