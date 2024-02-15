@@ -4,7 +4,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "200"
   creationTimestamp: null
-  name: argotest2
+  name: argotest2-1
 ---
 apiVersion: v1
 kind: ServiceAccount
@@ -12,14 +12,14 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "201"
   name: cli-job-sa
-  namespace: argotest2
+  namespace: argotest2-1
 --- 
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "202"
-  name: cli-job-sa-argotest2-rolebinding
+  name: cli-job-sa-argotest2-1-rolebinding
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
@@ -27,7 +27,7 @@ roleRef:
 subjects:
   - kind: ServiceAccount
     name: cli-job-sa
-    namespace: argotest2
+    namespace: argotest2-1
 ---
 apiVersion: batch/v1
 kind: Job
@@ -35,7 +35,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "203"
   name: testjob-2-1
-  namespace: argotest2
+  namespace: argotest2-1
 spec:
   template:
     spec:
