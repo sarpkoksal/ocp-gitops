@@ -5,12 +5,12 @@ metadata:
   labels:
     app.kubernetes.io/instance: ebc-multicloud-gitops-hub
   name: experiment-app2
-  namespace: ebc-multicloud-gitops-hub
+  namespace: openshift-gitops
 spec:
   destination:
     name: in-cluster
     namespace: openshift-local-storage
-  project: hub
+  project: default
   source:
     directory:
       recurse: true
