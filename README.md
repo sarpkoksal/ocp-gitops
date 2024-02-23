@@ -29,7 +29,7 @@ Access ArgoCD GUI using the information above. The GUI might look like the follo
 
 ![gitops_1](images/gitops_1.png)
 
-## Running ArgoCD Applications and SyncWaves:
+## Running ArgoCD Applications to demonstrate SyncWaves:
 
 Run the following commands:
 ```
