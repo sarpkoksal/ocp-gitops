@@ -3,8 +3,8 @@ kind: Job
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "103"
-  name: powerpod
-  namespace: argotest1
+  name: testjob1
+  namespace: argotest2
 spec:
   template:
     spec:
@@ -13,7 +13,7 @@ spec:
       terminationGracePeriodSeconds: 30
       containers:
         - image: quay.io/sfhassan/newtools
-          name: testjob
+          name: testjob1
           command:
             - /bin/bash
             - -c
