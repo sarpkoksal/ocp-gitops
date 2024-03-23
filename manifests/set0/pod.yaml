@@ -8,7 +8,5 @@ metadata:
   namespace: first-gitops-space
 spec:
   containers:
-  - args:
-    - myfirstgitops
-    image: quay.io/sfhassan/oc_net_tools
+  - image: quay.io/sfhassan/oc_net_tools
     name: pod
