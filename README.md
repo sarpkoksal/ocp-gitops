@@ -193,8 +193,11 @@ The purpose of the phase types is:
  * Sync:  Resources in this phase are allied after all applications in "PreSync" 	phases have been successfully applied and reached Healthy state
 * PostSync: Resources in this phase will run after successful "sync"  (e.g. 	email notifications)
 
+The following figure demonstrates this concept visually: 
+
 <img width="389" alt="image" src="https://github.com/git-shassan/ocp-gitops/assets/84737596/f3382698-6962-4d48-a466-1fa89b7b9a0b">
-(sourced from this ![site](https://redhat-scholars.github.io/argocd-tutorial/argocd-tutorial/04-syncwaves-hooks.html))
+
+(Figure sourced from this ![site](https://redhat-scholars.github.io/argocd-tutorial/argocd-tutorial/04-syncwaves-hooks.html))
 
 A SyncFail phase is also defined, and the resources are applied if Sync fails
 
@@ -207,11 +210,13 @@ All manifests have a wave of zero by default. Wave value can be set using `metad
 ```
 
 the GitOps Operator (ArgoCD) will apply the lowest value, and make sure it returns a "healthy" status before moving on.
-Argo CD won’t apply the next manifest until the previous reports "healthy" 
+Argo CD won’t apply the next manifest until the previous reports "healthy". 
+
+The following figure demonstrates this concept visually: 
 
 <img width="315" alt="image" src="https://github.com/git-shassan/ocp-gitops/assets/84737596/21192d7c-4507-4d35-8972-128c93d2c378">
 
-(sourced from this ![site](https://redhat-scholars.github.io/argocd-tutorial/argocd-tutorial/04-syncwaves-hooks.html))
+(Figure sourced from this ![site](https://redhat-scholars.github.io/argocd-tutorial/argocd-tutorial/04-syncwaves-hooks.html))
 
 ## Create Application to demonstrate SyncWaves:
 
