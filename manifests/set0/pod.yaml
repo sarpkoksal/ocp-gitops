@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: pod
+  name: pod
+spec:
+  containers:
+  - args:
+    - myfirstgitops
+    image: quay.io/sfhassan/newtools
+    name: pod
