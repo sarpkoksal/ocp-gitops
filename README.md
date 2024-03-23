@@ -182,7 +182,7 @@ ascending order
 
 ### More about Sync Phases: 
 
-The Phase is defined a Manifest under .metadata.annotations. argocd.argoproj.io/hookFor Example: 
+The Phase is defined a Manifest under `.metadata.annotations.argocd.argoproj.io/hookFor` Example: 
 ```
 metadata: 
   annotations: 
@@ -194,13 +194,13 @@ The purpose of the phase types is:
 * PostSync: Resources in this phase will run after successful "sync"  (e.g. 	email notifications)
 
 <img width="389" alt="image" src="https://github.com/git-shassan/ocp-gitops/assets/84737596/f3382698-6962-4d48-a466-1fa89b7b9a0b">
-(sourced from this [site](https://redhat-scholars.github.io/argocd-tutorial/argocd-tutorial/04-syncwaves-hooks.html))
+(sourced from this ![site](https://redhat-scholars.github.io/argocd-tutorial/argocd-tutorial/04-syncwaves-hooks.html))
 
 A SyncFail phase is also defined, and the resources are applied if Sync fails
 
 ### More about SyncWaves: 
 
-All manifests have a wave of zero by default. Wave value can be set using metadata.annotations.argocd.argoproj.io/sync-wave. The wave can also be negative as well. For example: metadata:
+All manifests have a wave of zero by default. Wave value can be set using `metadata.annotations.argocd.argoproj.io/sync-wave`. The wave can also be negative as well. For example: metadata:
 ```
     annotations:
       argocd.argoproj.io/sync-wave: "-203"
@@ -208,8 +208,10 @@ All manifests have a wave of zero by default. Wave value can be set using metada
 
 the GitOps Operator (ArgoCD) will apply the lowest value, and make sure it returns a "healthy" status before moving on.
 Argo CD won’t apply the next manifest until the previous reports "healthy" 
+
 <img width="315" alt="image" src="https://github.com/git-shassan/ocp-gitops/assets/84737596/21192d7c-4507-4d35-8972-128c93d2c378">
-(sourced from this [site](https://redhat-scholars.github.io/argocd-tutorial/argocd-tutorial/04-syncwaves-hooks.html))
+
+(sourced from this ![site](https://redhat-scholars.github.io/argocd-tutorial/argocd-tutorial/04-syncwaves-hooks.html))
 
 ## Create Application to demonstrate SyncWaves:
 
