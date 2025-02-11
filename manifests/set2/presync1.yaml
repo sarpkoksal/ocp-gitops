@@ -16,7 +16,7 @@ spec:
       # serviceAccountName: cli-job-sa
       terminationGracePeriodSeconds: 30
       containers:
-        - image: quay.io/sfhassan/newtools
+        - image: quay.tnc.bootcamp.lab:8443/sfhassan/oc_net_tools
           name: presync1
           command:
             - /bin/bash
